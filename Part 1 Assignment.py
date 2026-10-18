@@ -1,30 +1,31 @@
 
 import csv
 
+# Assignment Part 1 
 
 # Class for exchange rate conversions
 class ExchangeRates:
 
     def __init__(self, file):
-        self.file = file
+        self._file = file
 
         # Open the CSV file and extract the exchange rate
-        with open(self.file, "r", encoding="utf-8-sig") as csvfile:
+        with open(self._file, "r", encoding="utf-8-sig") as csvfile:
             reader = csv.DictReader(csvfile)
 
             for row in reader:
                 if row["FXAUSDCAD"]:
-                    self.rate = float(row["FXAUSDCAD"])
+                    self._rate = float(row["FXAUSDCAD"])
 
 
     # Function to convert between USD and CAD
     def convert(self, amount, current_currency, to_currency):
 
         if current_currency == "USD" and to_currency == "CAD":
-            return amount * self.rate
+            return amount * self._rate
 
         elif current_currency == "CAD" and to_currency == "USD":
-            return amount / self.rate
+            return amount / self._rate
 
         else:
             return amount
