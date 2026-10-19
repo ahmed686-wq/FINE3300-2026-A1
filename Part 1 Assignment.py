@@ -48,16 +48,17 @@ while True:
 
     # Question 2: Ask for the amount
     amountstr = input("Enter the amount you want to convert: ")
-
+    
+    # This checks is the amount entered is a valid number. If it is, it converts it to a float. If not, it prints an error message and continues the loop to ask for the amount again.
     if amountstr.isnumeric():
             amount = float(amountstr)
     else:
         print("Invalid amount. Please enter a numeric value.")
         continue
 
-  
+    # Check which currency the user selected and perform the conversion
     if currency == "USD to CAD":
-
+    
         result = converter.convert(amount, "USD", "CAD")
         print("${:.2f} USD = ${:.2f} CAD".format(amount, result))
 
@@ -65,7 +66,8 @@ while True:
 
         result = converter.convert(amount, "CAD", "USD")
         print("${:.2f} CAD = ${:.2f} USD".format(amount, result))
-
+    
+    # This is to check if the currency selection is valid. If it is not, it prints an error message and continues the loop to ask for the currency again.
     else:
         print("Invalid currency selection")
 
