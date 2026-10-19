@@ -12,7 +12,7 @@ class ExchangeRates:
         # This is to open the CSV file and extract the exchange rate
         with open(self._file, "r", encoding="utf-8-sig") as csvfile:
             reader = csv.DictReader(csvfile)
-
+         # This is to loop through the rows in the CSV file and find the latest exchange rate
             for row in reader:
                 if row["FXAUSDCAD"]:
                     self._rate = float(row["FXAUSDCAD"])
@@ -41,11 +41,21 @@ while True:
     # Question 1: Ask which currency to convert
     currency = input("Do you want to convert USD to CAD or CAD to USD? Type 'USD to CAD' or 'CAD to USD': ")
 
-    # Question 2: Ask for the amount
-    amount = float(input("Enter the amount you want to convert: "))
+    # Check if the currency selection is valid
+    if currency != "USD to CAD" and currency != "CAD to USD":
+        print("Invalid currency selection. Please try again.")
+        continue
 
-    # Check which currency the user selected
-    
+    # Question 2: Ask for the amount
+    amountstr = input("Enter the amount you want to convert: ")
+
+    if amountstr.isnumeric():
+            amount = float(amountstr)
+    else:
+        print("Invalid amount. Please enter a numeric value.")
+        continue
+
+  
     if currency == "USD to CAD":
 
         result = converter.convert(amount, "USD", "CAD")
@@ -62,6 +72,7 @@ while True:
     # Ask if the user wants to convert again
     restart = input("Do you want to convert again? (type: yes/no): ")
 
-    if restart != "yes":
+    # this the user input to check if they want to continue or not. the lower function is used to make the input insensitive to Uppercase and lowercase letters. If the user types anything other than "yes", the program will print "finish" and break out of the loop, ending the program.
+    if restart.lower() != "yes":
         print("finish")
         break
