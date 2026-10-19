@@ -51,9 +51,6 @@ while True:
         result = converter.convert(amount, "CAD", "USD")
         print("${:.2f} CAD = ${:.2f} USD".format(amount, result))
     
-    # This is to check if the currency selection is valid. If it is not, it prints an error message and continues the loop to ask for the currency again.
-    else:
-        print("Invalid currency selection")
 
     # Ask if the user wants to convert again
     restart = input("Do you want to convert again? (type: yes/no): ")
