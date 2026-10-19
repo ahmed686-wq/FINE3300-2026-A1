@@ -41,10 +41,15 @@ while True:
     # Question 1: Ask which currency to convert
     currency = input("Do you want to convert USD to CAD or CAD to USD? Type 'USD to CAD' or 'CAD to USD': ")
 
-    # Question 2: Ask for the amount
-    amount = float(input("Enter the amount you want to convert: "))
+   # Question 2: Ask for the amount
+    amountstr = input("Enter the amount you want to convert: ")
 
-    # Check which currency the user selected
+    if amountstr.isnumeric():
+        amount = float(amountstr)
+
+    else:
+        print("Invalid amount. Please enter a numeric value next time.")
+        continue
     
     if currency == "USD to CAD":
 

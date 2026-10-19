@@ -2,6 +2,7 @@
 import os
 import pandas as pd
 
+#This is the code generated from vibe coding using Claude.
 
 class ExchangeRates:
     """Reads Bank of Canada exchange rates from a CSV file using pandas
