@@ -27,10 +27,6 @@ class ExchangeRates:
         elif current_currency == "CAD" and to_currency == "USD":
             return amount / self._rate
 
-        else:
-            return amount
-
-
 # Create the currency converter using the CSV file
 converter = ExchangeRates("BankOfCanadaExchangeRate.2026.csv")
 
@@ -41,20 +37,8 @@ while True:
     # Question 1: Ask which currency to convert
     currency = input("Do you want to convert USD to CAD or CAD to USD? Type 'USD to CAD' or 'CAD to USD': ")
 
-    # Check if the currency selection is valid
-    if currency != "USD to CAD" and currency != "CAD to USD":
-        print("Invalid currency selection. Please try again.")
-        continue
-
     # Question 2: Ask for the amount
-    amountstr = input("Enter the amount you want to convert: ")
-    
-    # This checks is the amount entered is a valid number. If it is, it converts it to a float. If not, it prints an error message and continues the loop to ask for the amount again.
-    if amountstr.isnumeric():
-            amount = float(amountstr)
-    else:
-        print("Invalid amount. Please enter a numeric value.")
-        continue
+    amount = float(input("Enter the amount you want to convert: "))
 
     # Check which currency the user selected and perform the conversion
     if currency == "USD to CAD":
