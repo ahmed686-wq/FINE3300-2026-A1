@@ -65,7 +65,7 @@ def main():
         result = rates.convert(amount, from_currency, to_currency)
 
         # Display the result
-        print(f"\n{amount:,.2f} {from_currency} = {result:,.2f} {to_currency}\n")
+        print(f"\n${amount:,.2f} {from_currency} = ${result:,.2f} {to_currency}\n")
 
         # Ask if the user wants to convert again
         again = input("Convert another amount? (y/n): ")
